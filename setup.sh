@@ -75,7 +75,7 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
 	chsh -s /usr/local/bin/zsh;
 fi;
 
-for file in ./.{aliases,curlrc,editorconfig,exports,functions,gitconfig,paths,screenrc,wgetrc,zshrc}; do
+for file in ./.{aliases,curlrc,exports,functions,gitconfig,p10k.zsh,paths,wgetrc,wezterm.lua,zshrc}; do
 	cp -v "$file" ~;
 done;
 unset file;

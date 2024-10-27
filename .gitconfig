@@ -80,7 +80,7 @@
     name = Thomas Jegou
     email = thomas.jegou1@gmail.com
     # gpg --list-secret-keys --keyid-format=long
-    signingkey = <gpg_key_id>
+    signingkey = <key_id>
 [commit]
     gpgSign = true
 
