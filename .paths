@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
+# ---- Go Path Configuration ----
+# Set the GOPATH environment variable and add Go binaries to PATH
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin":$PATH
+
+# ---- System Paths Configuration ----
+# Add /usr/local/sbin and /usr/local/bin to PATH
 export PATH="/usr/local/sbin":$PATH
 export PATH="/usr/local/bin":$PATH
 
-
+# ---- Homebrew GNU Utilities Configuration ----
+# Check if Homebrew is installed and, if so, add GNU utilities installed by brew to PATH
 if type brew &>/dev/null; then
-	HOMEBREW_PREFIX=$(brew --prefix)
-	for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do
-		export PATH=$d:$PATH;
-	done
+    HOMEBREW_PREFIX=$(brew --prefix)
+    # Loop through all GNU bins provided by Homebrew and add them to the PATH
+    for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do
+        export PATH=$d:$PATH
+    done
 fi

@@ -1,23 +1,30 @@
 local wezterm = require 'wezterm'
 local config = {}
 
+-- ---- Window and Background Settings ----
+-- Enable tab bar at the top of the window
 config.enable_tab_bar = true
+-- Set window decorations (resize only, no title bar)
 config.window_decorations = "NONE | RESIZE"
+-- Set window opacity level
 config.window_background_opacity = 0.65
+-- Apply a background blur effect on macOS
 config.macos_window_background_blur = 6
 
--- Tab bar appearance settings
+-- ---- Tab Bar Appearance ----
+-- Configure background color for the tab bar
 config.colors = {
   tab_bar = {
-    background = "#1e1e1e", -- Opaque background color for the tab bar
+    background = "#1e1e1e", -- Dark background color for tab bar
   },
 }
 
--- Font settings
+-- ---- Font Configuration ----
+-- Set the font type and size
 config.font = wezterm.font("MesloLGS Nerd Font")
 config.font_size = 14.0
 
--- Keybindings configuration
+-- ---- Keybindings ----
 config.keys = {
   -- Toggle zoom for the active pane
   {
@@ -25,35 +32,35 @@ config.keys = {
     mods = "CMD",
     action = wezterm.action.TogglePaneZoomState,
   },
-  
-  -- Create a vertical split (to the right)
+
+  -- Split pane horizontally (right side)
   {
     key = "p",
     mods = "CMD",
     action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" },
   },
-  
-  -- Create a horizontal split (at the bottom)
+
+  -- Split pane vertically (bottom)
   {
     key = "h",
     mods = "CMD",
     action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" },
   },
-  
+
   -- Open a new tab
   {
     key = "t",
     mods = "CMD",
     action = wezterm.action.SpawnTab "CurrentPaneDomain",
   },
-  
+
   -- Close the current pane; if it’s the last pane, close the tab
   {
     key = "x",
     mods = "CMD",
     action = wezterm.action.CloseCurrentPane { confirm = false },
   },
-  
+
   -- Navigate between panes
   {
     key = "LeftArrow",
@@ -77,7 +84,8 @@ config.keys = {
   },
 }
 
--- Generate CMD+[1-9] shortcuts to switch to the corresponding tab
+-- ---- Tab Switching Shortcuts ----
+-- CMD + [1-9] to switch directly to tabs 1-9
 for i = 1, 9 do
   table.insert(config.keys, {
     key = tostring(i),
@@ -86,4 +94,5 @@ for i = 1, 9 do
   })
 end
 
+-- Return the configuration table
 return config

@@ -16,7 +16,6 @@ plugins=(
   docker
   docker-compose
   git
-  git-extras
   golang
   python
   systemadmin

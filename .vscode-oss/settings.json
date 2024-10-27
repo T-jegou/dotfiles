@@ -1,16 +1,56 @@
 {
-    "[python]": {
-        "editor.formatOnType": true
+	// ---- Terminal Configuration ----
+	"terminal.integrated.shell.osx": "/bin/zsh", // Set Zsh as the default shell on macOS
+  
+	// ---- Theme Configuration ----
+	"workbench.colorTheme": "Dracula (Official)",
+  
+	// ---- General Editor Settings ----
+	"editor.fontSize": 14,
+	"editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace", // Set preferred fonts
+	"editor.fontLigatures": true, // Enable font ligatures for improved code readability
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true, // Automatically format Go code on save
+	"editor.codeActionsOnSave": {
+	  "source.organizeImports": true // Organize imports automatically on save
 	},
-	"go.goroot": "/opt/homebrew/Cellar/go/1.22.2/libexec",
-	"go.coverOnSingleTest": true,
-	"go.coverOnSingleTestFile": true,
-	"go.coverMode": "atomic",
-	"terminal.integrated.defaultProfile.osx": "sh",
-	"application.shellEnvironmentResolutionTimeout": 60,
-	"redhat.telemetry.enabled": false,
-	"go.toolsManagement.autoUpdate": true,
-	"go.alternateTools": {},
-	"diffEditor.ignoreTrimWhitespace": false,
-	"workbench.colorTheme": "Abyss"
-}
+  
+	// ---- Go Language Specific Settings ----
+	"[go]": {
+	  "editor.defaultFormatter": "golang.go", // Use Go extension's formatter
+	  "editor.formatOnSave": true, // Format Go code on save
+	  "editor.codeActionsOnSave": {
+		"source.organizeImports": true // Organize imports automatically on save
+	  }
+	},
+  
+	// ---- Go Extension Configuration ----
+	"go.gopath": "${HOME}/go", // Set GOPATH to default Go workspace
+	"go.useLanguageServer": true, // Use gopls (Go Language Server) for enhanced IDE features
+	"go.lintTool": "golangci-lint", // Set linter to golangci-lint
+	"go.lintOnSave": "file", // Run linter on file save
+	"go.vetOnSave": "workspace", // Run vet on the entire workspace on save
+	"go.toolsManagement.autoUpdate": true, // Auto-update Go tools
+	"go.buildOnSave": "workspace", // Build the workspace on save
+	"go.testOnSave": false, // Disable running tests on save by default
+	"go.coverageDecorator": {
+	  "type": "gutter", // Show coverage information in the gutter
+	  "coveredHighlightColor": "rgba(64,128,128,0.5)",
+	  "uncoveredHighlightColor": "rgba(128,64,64,0.25)"
+	},
+  
+	// ---- File Explorer and Files Configuration ----
+	"explorer.confirmDelete": false, // Disable delete confirmation for files
+	"files.autoSave": "onFocusChange", // Auto-save files when switching focus
+	"files.exclude": {
+	  "**/.DS_Store": true,
+	  "**/node_modules": true,
+	  "**/dist": true
+	},
+  
+	// ---- Extensions Configuration ----
+	"extensions.ignoreRecommendations": false // Show extension recommendations
+  }
+  
